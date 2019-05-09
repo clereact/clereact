@@ -1,5 +1,6 @@
 const fetch = require("node-fetch");
 const { camelizeKeys } = require("humps");
+const { socialLinks } = require("./metadata");
 
 exports.sourceNodes = async ({
   actions: { createNode },
@@ -8,7 +9,7 @@ exports.sourceNodes = async ({
 }) => {
   // Fetch Meetup events for the group.
   const response = await fetch(
-    "https://api.meetup.com/Cleveland-React/events?status=past,upcoming",
+    `https://api.meetup.com/${socialLinks.meetup}/events?status=past,upcoming`,
   );
   const json = await response.json();
 

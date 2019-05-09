@@ -2,6 +2,15 @@
 
 Website for Cleveland React, built with [Gatsby](https://www.gatsbyjs.org) and [gatsby-starter-mate](https://www.gatsbyjs.org/starters/EmaSuriano/gatsby-starter-mate).
 
+## Adaptation
+
+Feel free to use this code for other Meetup.com groups.
+
+1. Fork the repository (https://github.com/clereact/clereact/fork)
+2. Open the `metadata.js` file and edit the group information. You can also customize the color scheme if you'd like.
+3. Add your own images in the `src/assets/` folder. `favicon.ico` is the favicon; `header-logo.png` is the logo image used in the top left of the header; and `site-image.png` is shown in the About section and used as the preview image when the site is shared on social media.
+4. Deploy to a static site host -- [Netlify](https://www.netlify.com) is a great option. You won't need to change any of their default settings; just authorize your GitHub account and select the repository.
+
 ## Development
 
 ### Setup

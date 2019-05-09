@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { ScrollingProvider } from "react-scroll-section";
 import "react-tippy/dist/tippy.css";
 import config from "react-reveal/globals";
-import colors from "../../colors";
+import { colors } from "../../metadata";
 import Helmet from "./Helmet";
 
 const GlobalStyle = createGlobalStyle`

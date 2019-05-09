@@ -4,7 +4,7 @@ import { StaticQuery, graphql } from "gatsby";
 import { withTheme } from "styled-components";
 import PropTypes from "prop-types";
 import favicon from "../assets/favicon.ico";
-import hero from "../assets/hero.jpeg";
+import siteImage from "../assets/site-image.png";
 
 const Helmet = ({ theme = {} }) => (
   <StaticQuery
@@ -36,7 +36,7 @@ const Helmet = ({ theme = {} }) => (
 
           <meta name="og:title" content={title} />
           <meta name="og:description" content={description} />
-          <meta name="og:image" content={hero} />
+          <meta name="og:image" content={siteImage} />
           <meta name="og:site_name" content={title} />
           <meta name="og:locale" content="en_US" />
           <meta name="og:type" content="website" />
@@ -44,8 +44,8 @@ const Helmet = ({ theme = {} }) => (
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:title" content={title} />
           <meta name="twitter:description" content={description} />
-          <meta name="twitter:image" content={hero} />
-          <meta name="twitter:image:src" content={hero} />
+          <meta name="twitter:image" content={siteImage} />
+          <meta name="twitter:image:src" content={siteImage} />
 
           <link
             href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"

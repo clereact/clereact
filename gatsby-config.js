@@ -1,32 +1,55 @@
-const manifestConfig = require("./manifest-config");
+const {
+  title,
+  description,
+  fullDescription,
+  socialLinks,
+  colors,
+} = require("./metadata");
 
 module.exports = {
   siteMetadata: {
-    title: "Cleveland React",
-    description: "Cleveland React meetup",
-    fullDescription:
-      "We are a Cleveland meetup focused on the [React.js](https://reactjs.org) framework. Join us for regular talks and discussions about intermediate-to-advanced topics pertaining to React.js and its broader ecosystem. All skill and experience levels welcome!",
-    url: "https://clereact.dev",
+    title,
+    description,
+    fullDescription,
     socialLinks: [
       {
         id: "meetup",
         fontAwesomeIcon: "meetup",
         name: "Meetup",
-        url: "https://www.meetup.com/Cleveland-React",
+        url: `https://www.meetup.com/${socialLinks.meetup}`,
       },
-      {
+      socialLinks.github && {
         id: "github",
         fontAwesomeIcon: "github",
         name: "GitHub",
-        url: "https://github.com/clereact",
+        url: `https://github.com/${socialLinks.github}`,
       },
-    ],
+      socialLinks.twitter && {
+        id: "twitter",
+        fontAwesomeIcon: "twitter",
+        name: "Twitter",
+        url: `https://twitter.com/${socialLinks.twitter}`,
+      },
+      socialLinks.facebook && {
+        id: "facebook",
+        fontAwesomeIcon: "facebook",
+        name: "Facebook",
+        url: socialLinks.facebook,
+      },
+    ].filter(Boolean),
   },
   plugins: [
     "gatsby-plugin-react-helmet",
     {
       resolve: "gatsby-plugin-manifest",
-      options: manifestConfig,
+      options: {
+        name: title,
+        short_name: title,
+        start_url: "/",
+        background_color: colors.background,
+        theme_color: colors.primary,
+        display: "minimal-ui",
+      },
     },
     "gatsby-plugin-styled-components",
     {

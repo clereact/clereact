@@ -7,7 +7,7 @@ import Fade from "react-reveal/Fade";
 import Section from "../components/Section";
 import Triangle from "../components/Triangle";
 import markdownRenderer from "../components/MarkdownRenderer";
-import hero from "../assets/hero.jpeg";
+import siteImage from "../assets/site-image.png";
 
 const Background = () => (
   <div>
@@ -57,7 +57,7 @@ const About = () => (
         }
       `}
       render={(data) => {
-        const { fullDescription } = data.site.siteMetadata;
+        const { title, fullDescription } = data.site.siteMetadata;
         return (
           <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
             <Box width={[1, 1, 4 / 6]} px={[1, 2, 4]}>
@@ -75,8 +75,8 @@ const About = () => (
             >
               <Fade right>
                 <ProfilePicture
-                  src={hero}
-                  alt="Cleveland React"
+                  src={siteImage}
+                  alt={title}
                   mt={[4, 4, 0]}
                   ml={[0, 0, 1]}
                 />
