@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { StaticQuery, graphql } from "gatsby";
-import { Heading, Flex, Box, Text } from "rebass";
+import { Heading, Flex, Box } from "rebass";
 import { SectionLink } from "react-scroll-section";
 import Section from "../components/Section";
 import SocialLink from "../components/SocialLink";

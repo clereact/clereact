@@ -3,12 +3,9 @@ import { Box, Flex, Heading, Button } from "rebass";
 import FontAwesome from "react-fontawesome";
 import { StaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
-import ReactMarkdown from "react-markdown";
-import Fade from "react-reveal/Fade";
 import { format } from "date-fns";
 import Section from "../components/Section";
 import Triangle from "../components/Triangle";
-import markdownRenderer from "../components/MarkdownRenderer";
 
 const Background = () => (
   <div>
