@@ -95,7 +95,7 @@ const RsvpButton = styled(Button)`
 
 const Events = () => (
   <Section.Container id="events" Background={Background}>
-    <Section.Header name="Events" icon="⚛" label="atom" />
+    <Section.Header name="Events" icon="📅" label="calendar" />
     <StaticQuery
       query={graphql`
         query EventsQuery {
@@ -157,12 +157,12 @@ const Events = () => (
                       </InfoHeading>
                     </a>
 
-                    <InfoHeading as="h2" color="secondaryLight" mt={2}>
+                    <InfoHeading as="h2" color="secondary" mt={2}>
                       <FontAwesome name="users" /> {event.yesRsvpCount}{" "}
                       attendees
                     </InfoHeading>
 
-                    <InfoHeading as="h2" color="secondaryLight" mt={2}>
+                    <InfoHeading as="h2" color="secondary" mt={2}>
                       <FontAwesome name="clock-o" />{" "}
                       {format(eventStart, "h:mmA")} -{" "}
                       {format(eventEnd, "h:mmA")}
