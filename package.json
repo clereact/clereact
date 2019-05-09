@@ -30,7 +30,6 @@
     "gatsby-plugin-offline": "^2.0.25",
     "gatsby-plugin-react-helmet": "^3.0.12",
     "gatsby-plugin-styled-components": "^3.0.7",
-    "gatsby-transformer-remark": "^2.3.10",
     "humps": "^2.0.1",
     "node-fetch": "^2.5.0",
     "prop-types": "^15.6.2",

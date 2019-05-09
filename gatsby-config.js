@@ -58,7 +58,6 @@ module.exports = {
         fonts: ["cabin", "Open Sans"],
       },
     },
-    "gatsby-transformer-remark",
     "gatsby-plugin-offline",
   ],
 };
