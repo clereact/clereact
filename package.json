@@ -23,6 +23,7 @@
   "homepage": "https://github.com/clereact/clereact#readme",
   "dependencies": {
     "clean-dir": "^1.0.3",
+    "date-fns": "^1.30.1",
     "envfile": "^3.0.0",
     "gatsby": "^2.3.27",
     "gatsby-plugin-google-analytics": "^2.0.18",
@@ -33,7 +34,9 @@
     "gatsby-plugin-styled-components": "^3.0.7",
     "gatsby-source-medium": "^2.0.7",
     "gatsby-transformer-remark": "^2.3.10",
+    "humps": "^2.0.1",
     "inquirer": "^6.2.0",
+    "node-fetch": "^2.5.0",
     "prop-types": "^15.6.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

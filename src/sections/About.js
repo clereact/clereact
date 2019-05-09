@@ -14,7 +14,7 @@ const Background = () => (
     <Triangle
       color="secondaryLight"
       height={["50vh", "20vh"]}
-      width={["50vw", "50vw"]}
+      width={["100vw", "100vw"]}
       invertY
     />
 
