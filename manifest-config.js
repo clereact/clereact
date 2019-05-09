@@ -1,8 +1,8 @@
 const colors = require("./colors");
 
 module.exports = {
-  name: "Cleveland react",
-  short_name: "Cleveland react",
+  name: "Cleveland React",
+  short_name: "Cleveland React",
   start_url: "/",
   background_color: colors.background,
   theme_color: colors.primary,
