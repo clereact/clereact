@@ -59,5 +59,11 @@ module.exports = {
       },
     },
     "gatsby-plugin-offline",
+    {
+      resolve: "gatsby-source-meetup",
+      options: {
+        groupUrlName: socialLinks.meetup,
+      },
+    },
   ],
 };

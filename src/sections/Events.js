@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Flex, Heading, Button } from "rebass";
 import FontAwesome from "react-fontawesome";
 import { StaticQuery, graphql } from "gatsby";
+import { camelizeKeys } from "humps";
 import styled from "styled-components";
 import { format } from "date-fns";
 import Section from "../components/Section";
@@ -96,19 +97,19 @@ const Events = () => (
     <StaticQuery
       query={graphql`
         query EventsQuery {
-          allMeetupEvents(limit: 3) {
+          allMeetupEvent(limit: 3) {
             edges {
               node {
-                meetupId
+                id
                 name
                 link
                 description
                 time
                 duration
-                yesRsvpCount
+                yes_rsvp_count
                 venue {
                   name
-                  address1
+                  address_1
                   city
                   state
                 }
@@ -118,7 +119,9 @@ const Events = () => (
         }
       `}
       render={(data) => {
-        const events = data.allMeetupEvents.edges.map(({ node }) => node);
+        const events = camelizeKeys(data.allMeetupEvent).edges.map(
+          ({ node }) => node,
+        );
 
         return (
           <Flex flexWrap="wrap">
