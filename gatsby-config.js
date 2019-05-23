@@ -59,7 +59,7 @@ module.exports = {
         fonts: ["cabin", "Open Sans"],
       },
     },
-    "gatsby-plugin-offline",
+    "gatsby-plugin-remove-serviceworker",
     {
       resolve: "gatsby-source-meetup",
       options: {
