@@ -97,6 +97,14 @@ const Events = () => (
     <StaticQuery
       query={graphql`
         query EventsQuery {
+          site {
+            siteMetadata {
+              socialLinks {
+                id
+                url
+              }
+            }
+          }
           allMeetupEvent(limit: 3) {
             edges {
               node {
@@ -123,6 +131,9 @@ const Events = () => (
           ({ node }) => node,
         );
 
+        const { socialLinks } = data.site.siteMetadata;
+        const meetupLink = socialLinks.find((link) => link.id === "meetup");
+
         return (
           <Flex flexWrap="wrap">
             {events.map((event) => {
@@ -133,7 +144,7 @@ const Events = () => (
               const eventEnd = new Date(event.time + event.duration);
 
               return (
-                <EventContainer key={event.meetupId}>
+                <EventContainer key={event.id}>
                   <Box>
                     <CalendarDate dateTime={format(eventStart, "YYYY-MM-DD")}>
                       <strong>{format(eventStart, "MMMM")}</strong>
@@ -179,6 +190,10 @@ const Events = () => (
                 </EventContainer>
               );
             })}
+
+            <a href={`${meetupLink.url}/events`} target="_blank">
+              <RsvpButton>More events →</RsvpButton>
+            </a>
           </Flex>
         );
       }}

@@ -64,6 +64,8 @@ module.exports = {
       resolve: "gatsby-source-meetup",
       options: {
         groupUrlName: socialLinks.meetup,
+        status: "upcoming,past",
+        desc: true,
       },
     },
   ],
