@@ -1,8 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
-import { Text } from "rebass";
-import Fade from "react-reveal/Fade";
 
 const FooterContainer = styled.footer`
   padding: 1em;
@@ -10,9 +8,14 @@ const FooterContainer = styled.footer`
   color: ${(props) => props.theme.colors.background};
   display: flex;
   flex: 0 1 auto;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+`;
+
+const FooterLink = styled.a`
+  color: ${(props) => props.theme.colors.background};
+  margin-left: 1em;
 `;
 
 const Footer = () => (
@@ -29,11 +32,12 @@ const Footer = () => (
       `}
       render={(data) => {
         return (
-          <Fade bottom>
-            <span>
-              <Text mb={1}>&copy; {data.site.siteMetadata.title}</Text>
-            </span>
-          </Fade>
+          <>
+            <span>&copy; {data.site.siteMetadata.title}</span>
+            <FooterLink href="https://www.netlify.com">
+              Deploys by Netlify
+            </FooterLink>
+          </>
         );
       }}
     />
