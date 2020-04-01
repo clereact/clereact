@@ -14,7 +14,7 @@ const socialLinks = {
   // GitHub organization username (optional)
   github: "clereact",
   // Twitter username (optional)
-  // twitter: "yourhandle",
+  twitter: "ClevelandReact",
   // Facebook link (optional full URL -- can be a group or page)
   // facebook: "https://facebook.com/groups/123",
   // OR
