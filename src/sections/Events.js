@@ -137,9 +137,11 @@ const Events = () => (
         return (
           <Flex flexWrap="wrap">
             {events.map((event) => {
-              const eventAddress = `${event.venue.name}, ${
-                event.venue.address1
-              }, ${event.venue.city}, ${event.venue.state}`;
+              const eventAddress = !event.venue
+                ? null
+                : `${event.venue.name}, ${event.venue.address1}, ${
+                    event.venue.city
+                  }, ${event.venue.state}`;
               const eventStart = new Date(event.time);
               const eventEnd = new Date(event.time + event.duration);
 
@@ -159,14 +161,20 @@ const Events = () => (
                       </Heading>
                     </a>
 
-                    <a
-                      href={`https://maps.google.com/?q=${eventAddress}`}
-                      target="_blank"
-                    >
+                    {eventAddress ? (
+                      <a
+                        href={`https://maps.google.com/?q=${eventAddress}`}
+                        target="_blank"
+                      >
+                        <InfoHeading as="h2" color="secondary" mt={2}>
+                          <FontAwesome name="map-pin" /> {event.venue.name}
+                        </InfoHeading>
+                      </a>
+                    ) : (
                       <InfoHeading as="h2" color="secondary" mt={2}>
-                        <FontAwesome name="map-pin" /> {event.venue.name}
+                        <FontAwesome name="map-pin" /> Online Event
                       </InfoHeading>
-                    </a>
+                    )}
 
                     <InfoHeading as="h2" color="secondary" mt={2}>
                       <FontAwesome name="users" /> {event.yesRsvpCount}{" "}
