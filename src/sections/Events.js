@@ -111,7 +111,6 @@ const Events = () => (
           ({ node }) => node,
         );
 
-        console.log({ upcomingEvents, pastEvents });
         const { socialLinks } = data.site.siteMetadata;
         const meetupLink = socialLinks.find((link) => link.id === "meetup");
 
