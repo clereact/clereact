@@ -1,12 +1,11 @@
 import React from "react";
-import { Box, Flex, Heading, Button } from "rebass";
-import FontAwesome from "react-fontawesome";
+import { Flex, Button, Heading } from "rebass";
 import { StaticQuery, graphql } from "gatsby";
 import { camelizeKeys } from "humps";
 import styled from "styled-components";
-import { format } from "date-fns";
 import Section from "../components/Section";
 import Triangle from "../components/Triangle";
+import Event from "../components/Event";
 
 const Background = () => (
   <div>
@@ -34,54 +33,6 @@ const Background = () => (
   </div>
 );
 
-const EventContainer = styled(Flex)`
-  background-color: white;
-  padding: 25px;
-  margin-bottom: 25px;
-  border: solid 1px ${(props) => props.theme.colors.secondaryLight};
-  @media only screen and (max-width: 400px) {
-    flex-direction: column;
-    align-items: center;
-  }
-`;
-
-const CalendarDate = styled.time`
-  display: flex;
-  flex-direction: column;
-  border: solid 1px ${(props) => props.theme.colors.secondary};
-  border-radius: 10px;
-  overflow: hidden;
-  width: 100px;
-  margin-bottom: 20px;
-
-  * {
-    display: block;
-    width: 100%;
-    font-size: 16px;
-    font-weight: bold;
-    font-style: normal;
-    text-align: center;
-  }
-
-  strong {
-    padding: 10px;
-    color: #fff;
-    background-color: ${(props) => props.theme.colors.primaryDark};
-    border-bottom: 1px dashed ${(props) => props.theme.colors.secondaryLight};
-    box-shadow: 0 2px 0 ${(props) => props.theme.colors.primaryDark};
-  }
-
-  span {
-    font-size: 2.8em;
-    letter-spacing: -0.05em;
-    color: #2f2f2f;
-  }
-`;
-
-const InfoHeading = styled(Heading)`
-  font-size: 18px;
-`;
-
 const RsvpButton = styled(Button)`
   background-color: ${(props) => props.theme.colors.primaryDark};
 
@@ -105,7 +56,32 @@ const Events = () => (
               }
             }
           }
-          allMeetupEvent(limit: 3) {
+          upcomingEvents: allMeetupEvent(
+            limit: 10
+            filter: { status: { eq: "upcoming" } }
+          ) {
+            edges {
+              node {
+                id
+                name
+                link
+                description
+                time
+                duration
+                yes_rsvp_count
+                venue {
+                  name
+                  address_1
+                  city
+                  state
+                }
+              }
+            }
+          }
+          pastEvents: allMeetupEvent(
+            limit: 5
+            filter: { status: { eq: "past" } }
+          ) {
             edges {
               node {
                 id
@@ -127,77 +103,29 @@ const Events = () => (
         }
       `}
       render={(data) => {
-        const events = camelizeKeys(data.allMeetupEvent).edges.map(
+        const upcomingEvents = camelizeKeys(data.upcomingEvents).edges.map(
           ({ node }) => node,
         );
 
+        const pastEvents = camelizeKeys(data.pastEvents).edges.map(
+          ({ node }) => node,
+        );
+
+        console.log({ upcomingEvents, pastEvents });
         const { socialLinks } = data.site.siteMetadata;
         const meetupLink = socialLinks.find((link) => link.id === "meetup");
 
         return (
           <Flex flexWrap="wrap">
-            {events.map((event) => {
-              const eventAddress = !event.venue
-                ? null
-                : `${event.venue.name}, ${event.venue.address1}, ${
-                    event.venue.city
-                  }, ${event.venue.state}`;
-              const eventStart = new Date(event.time);
-              const eventEnd = new Date(event.time + event.duration);
+            <Heading>Upcoming Events:</Heading>
+            {upcomingEvents.map((event) => (
+              <Event event={event} key={event.id} />
+            ))}
 
-              return (
-                <EventContainer key={event.id}>
-                  <Box>
-                    <CalendarDate dateTime={format(eventStart, "YYYY-MM-DD")}>
-                      <strong>{format(eventStart, "MMMM")}</strong>
-                      <span>{format(eventStart, "D")}</span>
-                    </CalendarDate>
-                  </Box>
-
-                  <Flex flexDirection="column" ml={3}>
-                    <a href={event.link} target="_blank">
-                      <Heading as="h1" color="primary">
-                        {event.name}
-                      </Heading>
-                    </a>
-
-                    {eventAddress ? (
-                      <a
-                        href={`https://maps.google.com/?q=${eventAddress}`}
-                        target="_blank"
-                      >
-                        <InfoHeading as="h2" color="secondary" mt={2}>
-                          <FontAwesome name="map-pin" /> {event.venue.name}
-                        </InfoHeading>
-                      </a>
-                    ) : (
-                      <InfoHeading as="h2" color="secondary" mt={2}>
-                        <FontAwesome name="map-pin" /> Online Event
-                      </InfoHeading>
-                    )}
-
-                    <InfoHeading as="h2" color="secondary" mt={2}>
-                      <FontAwesome name="users" /> {event.yesRsvpCount}{" "}
-                      attendees
-                    </InfoHeading>
-
-                    <InfoHeading as="h2" color="secondary" mt={2}>
-                      <FontAwesome name="clock-o" />{" "}
-                      {format(eventStart, "h:mmA")} -{" "}
-                      {format(eventEnd, "h:mmA")}
-                    </InfoHeading>
-
-                    <Box
-                      dangerouslySetInnerHTML={{ __html: event.description }}
-                    />
-
-                    <a href={event.link} target="_blank">
-                      <RsvpButton>RSVP on Meetup</RsvpButton>
-                    </a>
-                  </Flex>
-                </EventContainer>
-              );
-            })}
+            <Heading>Past Events:</Heading>
+            {pastEvents.map((event) => (
+              <Event event={event} key={event.id} />
+            ))}
 
             <a href={`${meetupLink.url}/events`} target="_blank">
               <RsvpButton>More events →</RsvpButton>

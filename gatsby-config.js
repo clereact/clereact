@@ -66,6 +66,18 @@ module.exports = {
         groupUrlName: socialLinks.meetup,
         status: "upcoming,past",
         desc: true,
+        eventsOptions: [
+          {
+            status: `upcoming`,
+            desc: false,
+            page: 100,
+          },
+          {
+            status: `past`,
+            desc: true,
+            page: 5,
+          },
+        ],
       },
     },
   ],
