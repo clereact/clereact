@@ -7,7 +7,7 @@ const title = "Cleveland React";
 const description = "Cleveland React meetup";
 const fullDescription = `We are a Cleveland meetup focused on the [React.js](https://reactjs.org) framework. Join us for regular talks and discussions about intermediate-to-advanced topics pertaining to React.js and its broader ecosystem. All skill and experience levels welcome!
 
-  Cleveland React is a safe and friendly place for all people, and behavior that makes people feel unsafe will not be tolerated. Please read our [Code of Conduct](https://github.com/clereact/clereact/blob/master/CODE_OF_CONDUCT.md).`;
+  Cleveland React is a safe and friendly place for all people, and behavior that makes people feel unsafe will not be tolerated. Please read our [Code of Conduct](/code-of-conduct).`;
 const socialLinks = {
   // Meetup slug (required)
   meetup: "Cleveland-React",

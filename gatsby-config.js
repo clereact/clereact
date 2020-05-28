@@ -80,5 +80,14 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `coc`,
+        path: `${__dirname}/CODE_OF_CONDUCT.md`,
+        // ignore: [`**/\.*`, `../\.cache/**`, `\.cache/**`, `/\.cache/**`], // ignore files starting with a dot
+      },
+    },
+    `gatsby-transformer-remark`,
   ],
 };

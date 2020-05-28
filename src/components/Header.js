@@ -1,6 +1,7 @@
-import React, { Fragment } from "react";
+import React from "react";
+import { Link } from "gatsby";
 import Headroom from "react-headroom";
-import { Flex, Image } from "rebass";
+import { Flex, Image, Box } from "rebass";
 import styled from "styled-components";
 import { SectionLinks } from "react-scroll-section";
 import Fade from "react-reveal/Fade";
@@ -70,10 +71,18 @@ const Header = () => (
             ));
 
             return (
-              <Fragment>
+              <>
                 {homeLink}
-                <Flex mr={[0, 3, 5]}>{navLinks}</Flex>
-              </Fragment>
+                <Flex mr={[0, 3, 5]}>
+                  {[
+                    ...navLinks,
+
+                    <RouteLink key="coc" to="/code-of-conduct">
+                      Code of Conduct
+                    </RouteLink>,
+                  ]}
+                </Flex>
+              </>
             );
           }}
         </SectionLinks>

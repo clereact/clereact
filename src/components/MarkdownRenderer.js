@@ -1,5 +1,6 @@
 import React from "react";
 import { SectionLink } from "react-scroll-section";
+import { Link } from "gatsby";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
@@ -34,6 +35,10 @@ const StyledLink = styled.a`
   }
 `;
 
+const StyledGatsbyLink = styled(StyledLink).attrs({
+  as: Link,
+})``;
+
 const MarkdownParagraph = styled.p`
   line-height: 2em;
 
@@ -53,10 +58,13 @@ const MarkdownListItem = styled.li`
 
 const MarkdownLink = ({ href, children }) => {
   const isInnerLink = href.startsWith("#");
+  const isInternalLink = href.startsWith("/");
   return isInnerLink ? (
     <SectionLink section={href.substring(1, href.length)}>
       {({ onClick }) => <StyledLink onClick={onClick}>{children}</StyledLink>}
     </SectionLink>
+  ) : isInternalLink ? (
+    <StyledGatsbyLink to={href}>{children}</StyledGatsbyLink>
   ) : (
     <StyledLink href={href} target="_blank">
       {children}
