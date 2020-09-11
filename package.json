@@ -33,7 +33,7 @@
     "gatsby-source-filesystem": "^2.3.8",
     "gatsby-transformer-remark": "^2.8.13",
     "humps": "^2.0.1",
-    "node-fetch": "^2.5.0",
+    "node-fetch": "^2.6.1",
     "prop-types": "^15.6.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
