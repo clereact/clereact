@@ -3,7 +3,8 @@
     "standard",
     "standard-react",
     "prettier/standard",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:tailwind/recommended"
   ],
   "parser": "babel-eslint",
   "plugins": ["jsx-a11y", "react-hooks"],
