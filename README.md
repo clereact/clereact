@@ -1,30 +1,40 @@
 # Cleveland React
 
-Website for Cleveland React, built with [Gatsby](https://www.gatsbyjs.org) and [gatsby-starter-mate](https://www.gatsbyjs.org/starters/EmaSuriano/gatsby-starter-mate).
+> Next + Netlify Starter
 
-## Adaptation
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ed50f56e-4fc2-4c98-8b66-1e5074c6f3d3/deploy-status)](https://app.netlify.com/sites/next-starter/deploys)
 
-Feel free to use this code for other Meetup.com groups.
+This is a [Next.js](https://nextjs.org/) v10.0.6 project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) and set up to be instantly deployed to [Netlify](https://url.netlify.com/Bk4UicocL)!
 
-1. Fork the repository (https://github.com/clereact/clereact/fork)
-2. Open the `metadata.js` file and edit the group information. You can also customize the color scheme if you'd like.
-3. Add your own images in the `src/assets/` folder. `favicon.ico` is the favicon; `logo.png` is the logo image used in the top left of the header (and also used to generate app icons for the progressive web app manifest); and `site-image.png` is shown in the About section and used as the preview image when the site is shared on social media.
-4. Deploy to a static site host -- [Netlify](https://www.netlify.com) is a great option. You won't need to change any of their default settings; just authorize your GitHub account and select the repository.
-5. You will want Netlify to rebuild your site on a regular basis to pick up new events or RSVPs from Meetup. One way to accomplish this is with an [IFTTT](https://ifttt.com) trigger that calls a Netlify build webhook. First, create a build webhook for the Netlify site under Settings -> Build & deploy -> Continuous Deployment -> Build hooks. Copy the URL. Second, create a new Applet in IFTTT. For the "this", select "Date & Time", and select "Every hour at" (the minutes option doesn't matter). For the "that", select "Webhooks" and then "Make a web request". Paste in the Netlify build URL. Select "POST" for the method. Click "Finish" and ensure the new Applet is enabled.
+This project is a very minimal starter that includes 2 sample components, a global stylesheet, a `netlify.toml` for deployment, and a `jsconfig.json` for setting up absolute imports and aliases.
 
-## Development
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/cassidoo/next-netlify-starter&utm_source=github&utm_medium=nextstarter-cs&utm_campaign=devex)
 
-### Setup
+(If you click this button, it will create a new repo for you that looks exactly like this one, and sets that repo up immediately for deployment on Netlify)
 
-1. Clone the repository (`git clone https://github.com/clereact/clereact.git`)
-2. Install npm packages: `yarn install`
-3. Start the Gatsby server: `yarn start`
-4. Visit [http://localhost:8000](http://localhost:8000) in your browser
+## Getting Started
 
-### Contributing
+First, run the development server:
 
-1. Fork the repository (https://github.com/clereact/clereact/fork)
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new pull request on GitHub
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+
+### Installation options
+
+**Option one:** One-click deploy
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/cassidoo/next-netlify-starter&utm_source=github&utm_medium=nextstarter-cs&utm_campaign=devex)
+
+**Option two:** Manual clone
+
+1. Clone this repo: `git clone https://github.com/cassidoo/next-netlify-starter.git`
+2. Navigate to the directory and run `npm run dev`
+3. Make your changes
+4. Connect to [Netlify](https://url.netlify.com/Bk4UicocL) manually (the `netlify.toml` file is the one you'll need to make sure stays intact to make sure the export is done and pointed to the right stuff)

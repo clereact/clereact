@@ -5,9 +5,10 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "build": "cleandir ./.cache && gatsby build",
-    "develop": "cleandir ./.cache && gatsby develop",
-    "start": "npm run develop",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "export": "next export",
     "format": "prettier --write './*.js' 'src/**/*.js'",
     "lint": "eslint ./src"
   },
@@ -15,37 +16,16 @@
     "type": "git",
     "url": "git+https://github.com/clereact/clereact.git"
   },
-  "author": "Ema Suriano & Zach Schneider",
+  "author": "Dan Ott",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/clereact/clereact/issues"
   },
   "homepage": "https://github.com/clereact/clereact#readme",
   "dependencies": {
-    "clean-dir": "^1.0.3",
-    "date-fns": "^1.30.1",
-    "gatsby": "^2.3.27",
-    "gatsby-plugin-google-fonts": "^0.0.4",
-    "gatsby-plugin-manifest": "^2.0.29",
-    "gatsby-plugin-react-helmet": "^3.0.12",
-    "gatsby-plugin-remove-serviceworker": "^1.0.0",
-    "gatsby-plugin-styled-components": "^3.0.7",
-    "gatsby-source-filesystem": "^2.3.8",
-    "gatsby-transformer-remark": "^2.8.13",
-    "humps": "^2.0.1",
-    "node-fetch": "^2.5.0",
-    "prop-types": "^15.6.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-fontawesome": "^1.6.1",
-    "react-headroom": "^3.0.0",
-    "react-helmet": "^5.2.0",
-    "react-markdown": "^4.0.3",
-    "react-reveal": "^1.2.2",
-    "react-scroll-section": "^1.3.0",
-    "react-tippy": "^1.2.2",
-    "rebass": "^3.0.0",
-    "styled-components": "^4.0.2"
+    "next": "10.0.6",
+    "react": "17.0.1",
+    "react-dom": "17.0.1"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
