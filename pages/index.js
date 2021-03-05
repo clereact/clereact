@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Header from '@components/Header';
 import Footer from '@components/Footer';
+import Link from 'next/link';
 
 export async function getStaticProps(context) {
   try {
@@ -30,7 +31,6 @@ export async function getStaticProps(context) {
 }
 
 export default function Home({ meetups }) {
-  console.log(meetups);
   return (
     <div className="container">
       <Head>
@@ -39,8 +39,33 @@ export default function Home({ meetups }) {
       </Head>
 
       <main>
-        <Header title="Cleveland React" />
+        <h1>Cleveland React</h1>
         <p className="description">Now on Next.js</p>
+
+        <h2>Upcoming events</h2>
+        <ul className="divide-y divide-gray-200">
+          {meetups.upcoming.map((meetup) => {
+            return (
+              <li className="py-4" key={meetup.id}>
+                <Link href={`/events/${meetup.id}`}>
+                  <a>{meetup.name}</a>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+        <h2>Past Events</h2>
+        <ul className="divide-y divide-gray-200">
+          {meetups.past.map((meetup) => {
+            return (
+              <li className="py-4" key={meetup.id}>
+                <Link href={`/events/${meetup.id}`}>
+                  <a>{meetup.name}</a>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </main>
 
       <Footer />
